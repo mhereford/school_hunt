@@ -1,0 +1,22 @@
+{% extends "schools/layout.html" %}
+
+
+{% block content %}
+    <h1>Majors</h1>
+    <br>
+  <ul>
+  	{% for major in majors %}
+  	  <li>
+        <h4>
+  	     <a href="{% url 'schools:major' major.id %}">{{ major.major_name }}</a>
+        </h4>
+  	  </li>
+  	{% empty %}
+  	  <li>No majors have been added yet.</li>
+
+  	{% endfor %}
+  </ul>  
+  <br>
+  <h4><a href="{% url 'schools:add_major' %}">Add a new major</a></h4>
+  
+  {% endblock content %}

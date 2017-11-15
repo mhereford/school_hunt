@@ -1,0 +1,20 @@
+{% extends "schools/layout.html" %}
+{%  load bootstrap3 %}
+
+{% block header %}
+	<h2>Add a new school:</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <form action="{% url 'schools:add_school' %}" method="POST" class="form">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+
+  {% buttons %}
+  	<button name="submit" class="btn btn-primary">add school</button>
+  {% endbuttons %}
+
+</form>
+
+{% endblock content %}

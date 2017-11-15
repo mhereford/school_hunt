@@ -1,0 +1,25 @@
+{% extends "schools/layout.html" %}
+
+
+{% block header %}
+    <h1>{{ major }}</h1>
+{% endblock header %}
+
+{% block content %}
+
+<p>
+    <ul>
+		{% for school in schools %}
+			<li>{{ school }}</li>
+		{% empty %}
+			<li>No schools on your list with this major.</li>
+		{% endfor %}
+	</ul>
+</p>
+
+<br>
+<h4><a href="{% url 'schools:update_major' major.id %}">edit</a></h4>
+<br>
+<h4><a href="{% url 'schools:delete_major' major.id %}">delete</a></a4>
+
+{% endblock content %}

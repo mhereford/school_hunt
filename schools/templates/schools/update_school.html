@@ -1,0 +1,23 @@
+{% extends "schools/layout.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+	<h1>{{ school.name }}</h1>
+{% endblock header %}
+
+{% block content %}
+
+<br>
+  <h4>Update School: </h4>
+
+  <form action="{% url 'schools:update_school' school.id %}" method="POST" class="form">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+
+  {% buttons %}
+  <button name="submit" class="btn btn-primary">Save Changes</button>
+  {% endbuttons %}}
+
+</form>
+
+{% endblock content %}

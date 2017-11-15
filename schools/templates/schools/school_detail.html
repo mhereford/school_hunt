@@ -1,0 +1,35 @@
+{% extends "schools/layout.html" %}
+
+
+{% block header %}
+    <h1>{{ school }}</h1>
+{% endblock header %}
+
+{% block content %}
+
+
+<p>
+    <ul>
+        <li>Location: {{ school.location}}</li>
+        <li>Tuition: {{ school.tuition }}</li>
+        <li> Visit: {{ schools.visit }}</li>
+        <li> Applied: {{ schools.applied }}</li>
+        <li> Accepted: {{ schools.accepted }}</li>
+    </ul>
+</p>
+<br><br>
+
+<h3>Majors: </h3>
+<ul>
+{% for major in majors %}
+	<li>{{ major }}</li>
+{% empty %}
+	<li>No majors added for this school.</li>
+{% endfor %}
+</ul>
+
+<br>
+<h4><a href="{% url 'schools:update_school' school.id %}">edit</a></h4>
+<h4><a href="{% url 'schools:delete_school' school.id %}">delete</a></h4>
+
+{% endblock content %}
