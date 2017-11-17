@@ -9,7 +9,7 @@
 
 <p>
     <ul>
-		{% for school in schools %}
+		{% for school in major.school.all %}
 			<li>{{ school }}</li>
 		{% empty %}
 			<li>No schools on your list with this major.</li>
